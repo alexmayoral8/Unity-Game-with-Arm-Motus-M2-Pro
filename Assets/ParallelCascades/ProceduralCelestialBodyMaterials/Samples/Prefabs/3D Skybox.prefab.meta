@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 462e83a58d416b446a077ecfd7316383
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Prefabs/3D
+    Skybox.prefab
+  uploadId: 781542

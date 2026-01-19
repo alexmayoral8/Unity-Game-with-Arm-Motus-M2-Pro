@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d3219a2b47c4a3c4ab13ade191f9cd2d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Prefabs/Yellow
+    Star.prefab
+  uploadId: 781542

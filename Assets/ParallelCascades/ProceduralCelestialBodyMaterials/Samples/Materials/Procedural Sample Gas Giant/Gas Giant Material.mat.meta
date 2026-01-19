@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c58d184ab32cd0145b149195192f8893
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Materials/Procedural
+    Sample Gas Giant/Gas Giant Material.mat
+  uploadId: 781542

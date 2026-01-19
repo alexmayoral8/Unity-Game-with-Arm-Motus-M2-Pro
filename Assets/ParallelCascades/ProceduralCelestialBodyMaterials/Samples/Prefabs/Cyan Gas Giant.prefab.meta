@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 06b0581e161858c4fa9f42f9d2ee6649
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Prefabs/Cyan
+    Gas Giant.prefab
+  uploadId: 781542

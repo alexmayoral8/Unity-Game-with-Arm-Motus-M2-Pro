@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 92d611dd81bb3a44bb4dbe912ba29f78
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Materials/Gas
+    Giant with Ring Lighting Overrides/Gas Giant Material.mat
+  uploadId: 781542

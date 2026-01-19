@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 013558a8c43d434e93382ba668384445
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/Common/Rendering/AutoLoadPipelineAsset.cs
+  uploadId: 781542

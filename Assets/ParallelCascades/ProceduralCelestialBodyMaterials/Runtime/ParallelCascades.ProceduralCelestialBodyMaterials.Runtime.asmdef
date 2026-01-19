@@ -1,0 +1,19 @@
+{
+    "name": "ParallelCascades.ProceduralCelestialBodyMaterials.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3adc1e31bff38e84d9f9104d61551db0",
+        "GUID:15fc0a57446b3144c949da3e2b9737a9",
+        "GUID:de223e6dd233e7a4bb079fd546746339",
+        "GUID:6c8540e8dfbf39b45919beac89779106"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
