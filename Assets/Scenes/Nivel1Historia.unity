@@ -2334,7 +2334,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 525583144}
         m_TargetAssemblyTypeName: GameManagerHistoriaPrueba, Assembly-CSharp
-        m_MethodName: ReiniciarJuego
+        m_MethodName: VolverMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2705,6 +2705,7 @@ MonoBehaviour:
   panelFinal: {fileID: 1676624566}
   textoResultados: {fileID: 0}
   trayectoriaIdeal: {fileID: 976209102}
+  barraEstabilidad: {fileID: 0}
 --- !u!1 &587456152
 GameObject:
   m_ObjectHideFlags: 0
@@ -3435,7 +3436,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 525583144}
         m_TargetAssemblyTypeName: GameManagerHistoriaPrueba, Assembly-CSharp
         m_MethodName: ReiniciarJuego
         m_Mode: 1
@@ -3791,9 +3792,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SalirAlMenu
+      - m_Target: {fileID: 525583144}
+        m_TargetAssemblyTypeName: GameManagerHistoriaPrueba, Assembly-CSharp
+        m_MethodName: VolverMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

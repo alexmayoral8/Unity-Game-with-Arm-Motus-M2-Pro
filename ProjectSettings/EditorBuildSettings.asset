@@ -68,6 +68,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ConfiguracionDeMision.unity
     guid: 23282a97e1be8c54e9ea69c1f2650310
+  - enabled: 1
+    path: Assets/Scenes/Nivel0PruebaTCP.unity
+    guid: 971450d669e159d44bd820bfe2a77a80
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
