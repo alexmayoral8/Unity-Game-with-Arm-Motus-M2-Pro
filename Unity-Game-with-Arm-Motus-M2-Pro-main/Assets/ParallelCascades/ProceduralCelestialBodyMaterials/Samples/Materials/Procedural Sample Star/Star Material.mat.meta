@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ea55facc8b397104e89f2a5cc96ddaaf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Materials/Procedural
+    Sample Star/Star Material.mat
+  uploadId: 781542

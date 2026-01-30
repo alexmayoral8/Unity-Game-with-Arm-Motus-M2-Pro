@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 05b67d8b850e0fd4199dca0ebfb7f257
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/URP
+    Settings/3D Skybox Universal Render Pipeline Asset_VolumeProfile.asset
+  uploadId: 781542

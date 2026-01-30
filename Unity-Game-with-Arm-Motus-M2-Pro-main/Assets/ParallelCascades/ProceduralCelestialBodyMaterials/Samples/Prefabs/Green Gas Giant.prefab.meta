@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c036fc81bd4b61c40987f7c77cf91513
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Prefabs/Green
+    Gas Giant.prefab
+  uploadId: 781542

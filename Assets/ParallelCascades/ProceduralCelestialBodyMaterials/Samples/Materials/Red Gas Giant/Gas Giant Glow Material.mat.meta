@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5bb3e89994eae384398ec895096f9bc7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Materials/Red
+    Gas Giant/Gas Giant Glow Material.mat
+  uploadId: 781542

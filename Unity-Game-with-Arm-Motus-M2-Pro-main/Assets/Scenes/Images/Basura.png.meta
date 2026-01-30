@@ -1,0 +1,626 @@
+fileFormatVersion: 2
+guid: 34b044bab83d18d4e96475d2ea9c04e8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8187165487532249733
+    second: Basura_0
+  - first:
+      213: -7223335815101805551
+    second: Basura_1
+  - first:
+      213: -9194430761182929621
+    second: Basura_2
+  - first:
+      213: -4467898939978883072
+    second: Basura_3
+  - first:
+      213: -8621278635012985193
+    second: Basura_4
+  - first:
+      213: -3488458890112403896
+    second: Basura_5
+  - first:
+      213: 3911573302646566146
+    second: Basura_6
+  - first:
+      213: 8609907407461145209
+    second: Basura_7
+  - first:
+      213: 3435039253158200595
+    second: Basura_8
+  - first:
+      213: 4977578122828785991
+    second: Basura_9
+  - first:
+      213: 5508043545076692636
+    second: Basura_10
+  - first:
+      213: -1337035606223915152
+    second: Basura_11
+  - first:
+      213: 2194683835821205883
+    second: Basura_12
+  - first:
+      213: -7291803634869684281
+    second: Basura_13
+  - first:
+      213: 4270516146344845240
+    second: Basura_14
+  - first:
+      213: -8208015064930169141
+    second: Basura_15
+  - first:
+      213: 8371298222546131432
+    second: Basura_16
+  - first:
+      213: -8289644889163203439
+    second: Basura_17
+  - first:
+      213: 8996375032166424100
+    second: Basura_18
+  - first:
+      213: -644968488566513069
+    second: Basura_19
+  - first:
+      213: 5965501766732847320
+    second: Basura_20
+  - first:
+      213: 4093043410329165910
+    second: Basura_21
+  - first:
+      213: 1296545275655289179
+    second: Basura_22
+  - first:
+      213: 1898723885187968098
+    second: Basura_23
+  - first:
+      213: -2552192010132289948
+    second: Basura_24
+  - first:
+      213: 7785972412898494777
+    second: Basura_25
+  - first:
+      213: -3048932281690219161
+    second: Basura_26
+  - first:
+      213: 1735589727855243346
+    second: Basura_27
+  - first:
+      213: -7093161889187896845
+    second: Basura_28
+  - first:
+      213: 6277610681645267178
+    second: Basura_29
+  - first:
+      213: -2249016930758131449
+    second: Basura_30
+  - first:
+      213: -2522971048936919367
+    second: Basura_31
+  - first:
+      213: -5928492344590611774
+    second: Basura_32
+  - first:
+      213: 4823086099311979210
+    second: Basura_33
+  - first:
+      213: -3829976202903886474
+    second: Basura_34
+  - first:
+      213: -8382116146878294007
+    second: Basura_35
+  - first:
+      213: -6948944345476389406
+    second: Basura_36
+  - first:
+      213: 4096014902147249086
+    second: Basura_37
+  - first:
+      213: -1186344790532425528
+    second: Basura_38
+  - first:
+      213: 7531333735416317720
+    second: Basura_39
+  - first:
+      213: 1552319850542004628
+    second: Basura_40
+  - first:
+      213: -3679120283966668795
+    second: Basura_41
+  - first:
+      213: -2744168278680686394
+    second: Basura_42
+  - first:
+      213: -7990050396165294573
+    second: Basura_43
+  - first:
+      213: -50223581660458543
+    second: Basura_44
+  - first:
+      213: -2217661232517596656
+    second: Basura_45
+  - first:
+      213: 1498657455748284873
+    second: Basura_46
+  - first:
+      213: -4088433101662338108
+    second: Basura_47
+  - first:
+      213: 3238224175107862833
+    second: Basura_48
+  - first:
+      213: -7166162868790115326
+    second: Basura_49
+  - first:
+      213: -1104911660790410895
+    second: Basura_50
+  - first:
+      213: -5615953778357011356
+    second: Basura_51
+  - first:
+      213: -5341184452342943850
+    second: Basura_52
+  - first:
+      213: -222983945288968855
+    second: Basura_53
+  - first:
+      213: -7044004043235255535
+    second: Basura_54
+  - first:
+      213: 1154156423003037717
+    second: Basura_55
+  - first:
+      213: 4160342994048383935
+    second: Basura_56
+  - first:
+      213: -229802285545612941
+    second: Basura_57
+  - first:
+      213: -8459723250678644283
+    second: Basura_58
+  - first:
+      213: -2954095286704544289
+    second: Basura_59
+  - first:
+      213: 886178742213789060
+    second: Basura_60
+  - first:
+      213: -5226808844671392982
+    second: Basura_61
+  - first:
+      213: 1777091826353955041
+    second: Basura_62
+  - first:
+      213: 1549811137622495393
+    second: Basura_63
+  - first:
+      213: 2313227320099267076
+    second: Basura_64
+  - first:
+      213: -3374430085116456361
+    second: Basura_65
+  - first:
+      213: 4008405742465233601
+    second: Basura_66
+  - first:
+      213: 6101774402974730658
+    second: Basura_67
+  - first:
+      213: -6622492361729436252
+    second: Basura_68
+  - first:
+      213: 2694591765864212768
+    second: Basura_69
+  - first:
+      213: 950343275679571048
+    second: Basura_70
+  - first:
+      213: -737384381613155886
+    second: Basura_71
+  - first:
+      213: 122648255531405134
+    second: Basura_72
+  - first:
+      213: -4666183247289638818
+    second: Basura_73
+  - first:
+      213: -1907920390264069585
+    second: Basura_74
+  - first:
+      213: -7573564320336769786
+    second: Basura_75
+  - first:
+      213: 6326230157143379080
+    second: Basura_76
+  - first:
+      213: 5680762491269363160
+    second: Basura_77
+  - first:
+      213: 7000840327534115807
+    second: Basura_78
+  - first:
+      213: 8146257602106618781
+    second: Basura_79
+  - first:
+      213: -6866196599983155412
+    second: Basura_80
+  - first:
+      213: -3837810670567983449
+    second: Basura_81
+  - first:
+      213: 5643874534514802716
+    second: Basura_82
+  - first:
+      213: 6557772659316508351
+    second: Basura_83
+  - first:
+      213: -4105430749644400686
+    second: Basura_84
+  - first:
+      213: 2381307179148244344
+    second: Basura_85
+  - first:
+      213: 6139255624524939418
+    second: Basura_86
+  - first:
+      213: -1874488386423199229
+    second: Basura_87
+  - first:
+      213: 1115490955946703052
+    second: Basura_88
+  - first:
+      213: 8430878818767252894
+    second: Basura_89
+  - first:
+      213: 1907256376423575639
+    second: Basura_90
+  - first:
+      213: -3409617315071625781
+    second: Basura_91
+  - first:
+      213: 7480785845216913066
+    second: Basura_92
+  - first:
+      213: -1468814579245250155
+    second: Basura_93
+  - first:
+      213: -6024359568451139893
+    second: Basura_94
+  - first:
+      213: -904203316387683035
+    second: Basura_95
+  - first:
+      213: 3483556704317097486
+    second: Basura_96
+  - first:
+      213: 4559299772174710107
+    second: Basura_97
+  - first:
+      213: -3714588985146918874
+    second: Basura_98
+  - first:
+      213: -2179500381681573899
+    second: Basura_99
+  - first:
+      213: -359528295825853818
+    second: Basura_100
+  - first:
+      213: 1526015070330178303
+    second: Basura_101
+  - first:
+      213: 1962504182973779432
+    second: Basura_102
+  - first:
+      213: 4907775631080606516
+    second: Basura_103
+  - first:
+      213: 2460831447322865646
+    second: Basura_104
+  - first:
+      213: -4093851467834706767
+    second: Basura_105
+  - first:
+      213: 7173064125549462498
+    second: Basura_106
+  - first:
+      213: 1770909206369545006
+    second: Basura_107
+  - first:
+      213: 8796280520992690754
+    second: Basura_108
+  - first:
+      213: 7794027788973359111
+    second: Basura_109
+  - first:
+      213: 2827570103552886120
+    second: Basura_110
+  - first:
+      213: 4030692431004632341
+    second: Basura_111
+  - first:
+      213: 8217537219990886383
+    second: Basura_112
+  - first:
+      213: 2203897476908294257
+    second: Basura_113
+  - first:
+      213: 8811257791630535794
+    second: Basura_114
+  - first:
+      213: -4513512130411255749
+    second: Basura_115
+  - first:
+      213: -8201579013449568420
+    second: Basura_116
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Basura_0
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 653
+        width: 231
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d6d46dd58516e80800000000000000
+      internalID: -8187165487532249733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basura_3
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 412
+        width: 555
+        height: 542
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 000e6360695def1c0800000000000000
+      internalID: -4467898939978883072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basura_6
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 839
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20d6621c133b84630800000000000000
+      internalID: 3911573302646566146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basura_8
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 688
+        width: 95
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 315840a4006bbaf20800000000000000
+      internalID: 3435039253158200595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basura_41
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 95
+        width: 274
+        height: 558
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5008b34389321fcc0800000000000000
+      internalID: -3679120283966668795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basura_1
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 123
+        width: 280
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2aead17c02cca479ce9b29c98f02d2
+      internalID: 273386798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basura_2
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 109
+        width: 147
+        height: 323
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f22d091c985b5458e60eff3cfb3d73
+      internalID: 228401481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 815521fce0071b048be790542b13a37f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Basura_1: 273386798
+      Basura_2: 228401481
+      Basura_63: -438848436
+      Basura_71: -1277050194
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

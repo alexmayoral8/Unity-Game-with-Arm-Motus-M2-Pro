@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7b03bff7bf367ac45be14c9aea7f438b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Materials/Procedural
+    Sample Gas Giant/Asteroid Ring Material.mat
+  uploadId: 781542

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d7f7a245b1cfd4f478408cc1be8d39b8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Materials/Procedural
+    Sample Gas Giant/Gas Giant Glow Material.mat
+  uploadId: 781542

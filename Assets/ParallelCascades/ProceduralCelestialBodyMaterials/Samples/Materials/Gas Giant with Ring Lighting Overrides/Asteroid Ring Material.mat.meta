@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 59d546d45e196dd4fb146ea3ffa8ecdc
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Materials/Gas
+    Giant with Ring Lighting Overrides/Asteroid Ring Material.mat
+  uploadId: 781542

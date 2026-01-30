@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2fc4139e8b272d84e8f5f56a7969182a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Prefabs/Red
+    Dwarf.prefab
+  uploadId: 781542

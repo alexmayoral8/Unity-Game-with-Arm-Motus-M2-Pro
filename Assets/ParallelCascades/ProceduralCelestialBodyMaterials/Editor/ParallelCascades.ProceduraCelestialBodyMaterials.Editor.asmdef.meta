@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c37647390a10cd84db908e8cd1fe6ded
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Editor/ParallelCascades.ProceduraCelestialBodyMaterials.Editor.asmdef
+  uploadId: 781542

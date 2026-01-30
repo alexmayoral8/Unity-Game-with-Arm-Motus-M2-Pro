@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 001ae50fbf43b92448cd4e3ea5d828e7
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/PostProcessing/PostFXGlowPass.cs
+  uploadId: 781542

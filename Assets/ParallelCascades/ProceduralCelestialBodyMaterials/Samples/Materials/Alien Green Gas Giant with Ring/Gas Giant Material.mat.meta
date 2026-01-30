@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7deb453f2d8d8ee419cbf12d0f3e0dd2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Materials/Alien
+    Green Gas Giant with Ring/Gas Giant Material.mat
+  uploadId: 781542

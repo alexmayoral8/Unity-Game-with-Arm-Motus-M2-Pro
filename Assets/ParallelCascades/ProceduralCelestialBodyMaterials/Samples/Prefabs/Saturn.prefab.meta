@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b02ae34eaaa618b44a89af6f7013b2c6
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 296362
+  packageName: Procedural Celestial Body Materials
+  packageVersion: 2.1.2
+  assetPath: Assets/ParallelCascades/ProceduralCelestialBodyMaterials/Samples/Prefabs/Saturn.prefab
+  uploadId: 781542

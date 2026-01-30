@@ -1,0 +1,273 @@
+fileFormatVersion: 2
+guid: fe690d7c40aa5e94c906891b346440b2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4661706618670557915
+    second: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_0"
+  - first:
+      213: 9025175499665202061
+    second: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_1"
+  - first:
+      213: -2257866934271829247
+    second: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_2"
+  - first:
+      213: -1106749404994891442
+    second: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_3"
+  - first:
+      213: -4307403604233388779
+    second: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_4"
+  - first:
+      213: -3364508349610506070
+    second: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_5"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_0"
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 482
+        width: 2626
+        height: 1798
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bda22fc8875b1b040800000000000000
+      internalID: 4661706618670557915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_1"
+      rect:
+        serializedVersion: 2
+        x: 2584
+        y: 1924
+        width: 59
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8b5a1dac4ddf3d70800000000000000
+      internalID: 9025175499665202061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_2"
+      rect:
+        serializedVersion: 2
+        x: 2610
+        y: 1634
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10b90a86cf17aa0e0800000000000000
+      internalID: -2257866934271829247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_3"
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 1212
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4197eba74904a0f0800000000000000
+      internalID: -1106749404994891442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_4"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 883
+        width: 79
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51d7e695e370934c0800000000000000
+      internalID: -4307403604233388779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014planet planet hand hand painted_3928826_5"
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 542
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa841a16b7dde41d0800000000000000
+      internalID: -3364508349610506070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 337c7c9effcf80341b07bc5f92b9abc3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "\u2014Pngtree\u2014planet planet hand hand painted_3928826_0": 4661706618670557915
+      "\u2014Pngtree\u2014planet planet hand hand painted_3928826_1": 9025175499665202061
+      "\u2014Pngtree\u2014planet planet hand hand painted_3928826_2": -2257866934271829247
+      "\u2014Pngtree\u2014planet planet hand hand painted_3928826_3": -1106749404994891442
+      "\u2014Pngtree\u2014planet planet hand hand painted_3928826_4": -4307403604233388779
+      "\u2014Pngtree\u2014planet planet hand hand painted_3928826_5": -3364508349610506070
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
