@@ -149,15 +149,24 @@ public class UnityClient : MonoBehaviour
             Debug.LogError("[UNITY] Send error: " + e.Message);
         }
     }
+    void OnDestroy()
+    {
+        // Importante: al cambiar de escena este objeto se destruye
+        SafeClose();
+    }
+
+    void SafeClose()
+    {
+        try { SendMessageToServer("CLOSE"); } catch { }
+        Disconnect();
+    }
 
     void Disconnect()
     {
-        try
-        {
-            if (stream != null) stream.Close();
-            if (client != null) client.Close();
-        }
-        catch { }
+        try { if (stream != null) stream.Close(); } catch { }
+        try { if (client != null) client.Close(); } catch { }
+        stream = null;
+        client = null;
         Debug.Log("[UNITY] Disconnected.");
     }
 

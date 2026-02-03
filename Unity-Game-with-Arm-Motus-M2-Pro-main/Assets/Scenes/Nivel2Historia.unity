@@ -2079,9 +2079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nave: {fileID: 1970546351}
   panelGameOver: {fileID: 740027217}
-  mensajeUI: {fileID: 0}
   panelFinal: {fileID: 1676624566}
-  textoResultados: {fileID: 0}
   trayectoriaIdeal: {fileID: 701282003}
   barraEstabilidad: {fileID: 0}
 --- !u!1 &582996646
@@ -5912,7 +5910,7 @@ MonoBehaviour:
   Xmax: 1.6
   Ymin: 0
   Ymax: 1.9
-  invertX: 1
+  invertX: 0
   invertY: 0
   bottomLeft: {fileID: 1541747847}
   topRight: {fileID: 357555432}

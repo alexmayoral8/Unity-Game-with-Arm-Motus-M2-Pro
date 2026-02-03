@@ -1567,9 +1567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nave: {fileID: 1970546351}
   panelGameOver: {fileID: 740027217}
-  mensajeUI: {fileID: 0}
   panelFinal: {fileID: 1676624566}
-  textoResultados: {fileID: 0}
   trayectoriaIdeal: {fileID: 701282003}
   barraEstabilidad: {fileID: 0}
 --- !u!1 &542605910
@@ -3912,6 +3910,60 @@ PolygonCollider2D:
       - {x: 0.465, y: -0.085}
       - {x: 0.475, y: -0.055}
   m_UseDelaunayMesh: 0
+--- !u!1 &1110756301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110756303}
+  - component: {fileID: 1110756302}
+  m_Layer: 0
+  m_Name: TCP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1110756302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110756301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540fdd5fd32f15f4786ca6748a44c597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  host: 127.0.0.1
+  port: 12345
+  nave: {fileID: 1970546351}
+  requestInterval: 0.05
+  lastX: 0
+  lastY: 0
+  lastFx: 0
+  lastFy: 0
+  logValues: 1
+  logEveryN: 20
+--- !u!4 &1110756303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110756301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5677359, y: 0.48561615, z: -0.01852896}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1187524167
 GameObject:
   m_ObjectHideFlags: 0
@@ -9244,3 +9296,4 @@ SceneRoots:
   - {fileID: 1950867767}
   - {fileID: 200994039}
   - {fileID: 1962910232}
+  - {fileID: 1110756303}

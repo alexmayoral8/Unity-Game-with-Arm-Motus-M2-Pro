@@ -14,9 +14,9 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
 
     [Header("UI")]
     public GameObject panelGameOver; // Arrastra aquí tu panel de Game Over en el Inspector
-    public TextMeshProUGUI mensajeUI;
+    //public TextMeshProUGUI mensajeUI;
     public GameObject panelFinal;
-    public TMP_Text textoResultados;
+    //public TMP_Text textoResultados;
     public LineRenderer trayectoriaIdeal;
     bool _gameOverRunning;
     public Slider barraEstabilidad;
@@ -106,13 +106,13 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
     }
     public void ActualizarMensajeInicial()
     {
-        if (mensajeUI != null)
-            mensajeUI.text = "Coloca el mouse sobre la nave y presiona ESPACIO para iniciar el viaje";
+        //if (mensajeUI != null)
+           // mensajeUI.text = "Coloca el mouse sobre la nave y presiona ESPACIO para iniciar el viaje";
     }
     public void BorrarMensaje()
     {
-        if (mensajeUI != null)
-            mensajeUI.text = "";
+        //if (mensajeUI != null)
+           // mensajeUI.text = "";
     }
     public void ActivarPanelFinal()
     {

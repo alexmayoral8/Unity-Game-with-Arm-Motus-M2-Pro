@@ -52,6 +52,9 @@ public class NaveHistoriaPrueba : MonoBehaviour
     public float clampPadding = 0.3f;            // margen para el clamping
     private Vector3 virtualCursor;               // en mundo
     private bool virtualCursorInit = false;
+    [Header("Arm Motus Sensitivity")]
+    [Range(0.5f, 2.0f)] public float robotSensitivity = 1.0f;
+    public const string PREF_KEY_ROBOT_SENS = "Robot_Sens";
 
     [Header("Cursor")]
     public bool hideSystemCursorInPlay = true;     // ocultar cursor SO en juego
@@ -95,6 +98,31 @@ public class NaveHistoriaPrueba : MonoBehaviour
 
     void Start()
     {
+        // === Robot calibration (PlayerPrefs) ===
+        const string KEY_XMIN = "Robot_Xmin";
+        const string KEY_XMAX = "Robot_Xmax";
+        const string KEY_YMIN = "Robot_Ymin";
+        const string KEY_YMAX = "Robot_Ymax";
+        const string KEY_INVX = "Robot_invertX";
+        const string KEY_INVY = "Robot_invertY";
+
+        if (PlayerPrefs.HasKey(KEY_XMIN) && PlayerPrefs.HasKey(KEY_XMAX) &&
+            PlayerPrefs.HasKey(KEY_YMIN) && PlayerPrefs.HasKey(KEY_YMAX))
+        {
+            Xmin = PlayerPrefs.GetFloat(KEY_XMIN);
+            Xmax = PlayerPrefs.GetFloat(KEY_XMAX);
+            Ymin = PlayerPrefs.GetFloat(KEY_YMIN);
+            Ymax = PlayerPrefs.GetFloat(KEY_YMAX);
+
+            // Si no existen, respeta los valores por defecto del inspector
+            invertX = PlayerPrefs.GetInt(KEY_INVX, invertX ? 1 : 0) == 1;
+            invertY = PlayerPrefs.GetInt(KEY_INVY, invertY ? 1 : 0) == 1;
+
+            Debug.Log($"[CAL] Loaded: X[{Xmin:F3},{Xmax:F3}] Y[{Ymin:F3},{Ymax:F3}] invX={invertX} invY={invertY}");
+        }
+        if (PlayerPrefs.HasKey(PREF_KEY_ROBOT_SENS))
+            robotSensitivity = Mathf.Clamp(PlayerPrefs.GetFloat(PREF_KEY_ROBOT_SENS, 1.0f), 0.5f, 2.0f);
+
         // Lee sensibilidad guardada del menú
         if (PlayerPrefs.HasKey(PREF_KEY_SENS))
         {
@@ -506,8 +534,25 @@ public class NaveHistoriaPrueba : MonoBehaviour
 
     private Vector2 MapRobotToWorld(float xRaw, float yRaw)
     {
-        float nx = Mathf.InverseLerp(Xmin, Xmax, xRaw); // 0..1
-        float ny = Mathf.InverseLerp(Ymin, Ymax, yRaw);
+            // --- rango efectivo por sensibilidad ---
+        float cx = 0.5f * (Xmin + Xmax);
+        float cy = 0.5f * (Ymin + Ymax);
+
+        float halfX = 0.5f * (Xmax - Xmin);
+        float halfY = 0.5f * (Ymax - Ymin);
+
+        float s = Mathf.Max(0.01f, robotSensitivity); // evita div/0
+
+        float halfXeff = halfX / s;
+        float halfYeff = halfY / s;
+
+        float XminEff = cx - halfXeff;
+        float XmaxEff = cx + halfXeff;
+        float YminEff = cy - halfYeff;
+        float YmaxEff = cy + halfYeff;
+
+        float nx = Mathf.InverseLerp(XminEff, XmaxEff, xRaw);
+        float ny = Mathf.InverseLerp(YminEff, YmaxEff, yRaw);
 
         if (invertX) nx = 1f - nx;
         if (invertY) ny = 1f - ny;
@@ -516,15 +561,12 @@ public class NaveHistoriaPrueba : MonoBehaviour
         ny = Mathf.Clamp01(ny);
 
         if (bottomLeft == null || topRight == null)
-        {
-            // fallback: usa cámara (como tu clamp), pero mejor asigna bottomLeft/topRight
-            Vector3 v = new Vector3(nx, ny, 0f);
-            return new Vector2(v.x, v.y);
-        }
+            return new Vector2(nx, ny);
 
         float xW = Mathf.Lerp(bottomLeft.position.x, topRight.position.x, nx);
         float yW = Mathf.Lerp(bottomLeft.position.y, topRight.position.y, ny);
         return new Vector2(xW, yW);
+
     }
     private Vector3 GetMouseCursorWorld()
     {

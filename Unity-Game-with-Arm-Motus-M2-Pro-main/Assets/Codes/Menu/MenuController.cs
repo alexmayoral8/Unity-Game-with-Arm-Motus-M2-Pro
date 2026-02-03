@@ -102,4 +102,8 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene("ModoHistoria");
     }
+    public void IrACalibracion()
+    {
+        SceneManager.LoadScene("calibracion");
+    }
 }

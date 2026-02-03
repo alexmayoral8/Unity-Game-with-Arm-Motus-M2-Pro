@@ -19,9 +19,9 @@ public class GameManagerHistoria : MonoBehaviour
     private NaveHistoria naveSeleccionada;
 
     [Header("UI")]
-    public TextMeshProUGUI mensajeUI;
+    //public TextMeshProUGUI mensajeUI;
     public GameObject panelFinal;
-    public TMP_Text textoResultados;
+    //public TMP_Text textoResultados;
     public LineRenderer trayectoriaIdeal;
 
     private int navesCompletadas = 0;
@@ -98,8 +98,8 @@ public class GameManagerHistoria : MonoBehaviour
         if (navesCompletadas + navesPerdidas >= naves.Length)
         {
             if (panelFinal != null) panelFinal.SetActive(true);
-            if (textoResultados != null)
-                textoResultados.text = $"Error promedio: {error:F2}   Estabilidad: {estabilidad:F4}";
+            //if (textoResultados != null)
+                //textoResultados.text = $"Error promedio: {error:F2}   Estabilidad: {estabilidad:F4}";
         }
         else
         {
@@ -122,14 +122,14 @@ public class GameManagerHistoria : MonoBehaviour
     // ============================== MENSAJE UI ==============================
     public void ActualizarMensajeInicial()
     {
-        if (mensajeUI != null)
-            mensajeUI.text = "Coloca el mouse sobre la nave y presiona ESPACIO para controlar la nave";
+        //if (mensajeUI != null)
+           // mensajeUI.text = "Coloca el mouse sobre la nave y presiona ESPACIO para controlar la nave";
     }
 
     public void BorrarMensaje()
     {
-        if (mensajeUI != null)
-            mensajeUI.text = "";
+        //if (mensajeUI != null)
+           // mensajeUI.text = "";
     }
 
 
