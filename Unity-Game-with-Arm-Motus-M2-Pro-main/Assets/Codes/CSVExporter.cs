@@ -41,7 +41,7 @@ public static class CSVExporter
     {
         if (string.IsNullOrEmpty(saveFolder))
         {
-            Debug.LogError("❌ No se ha seleccionado carpeta para guardar los CSV.");
+            Debug.Log("❌ No se ha seleccionado carpeta para guardar los CSV.");
             return;
         }
 
@@ -53,27 +53,53 @@ public static class CSVExporter
             return;
         }
 
-        int n = trayectoriaReal.Count;
+        int n = Mathf.Min(
+            trayectoriaReal.Count,
+            tiemposTrayectoria.Count,
+            choqueEstadoPorMuestra.Count,
+            suministrosPorMuestra.Count
+        );
+
+        if (n <= 0)
+        {
+            Debug.LogWarning("⚠️ CSV: no hay muestras suficientes para guardar.");
+            return;
+        }
+
+        // Si quieres saber si hubo desface:
+        if (tiemposTrayectoria.Count != trayectoriaReal.Count ||
+            choqueEstadoPorMuestra.Count != trayectoriaReal.Count ||
+            suministrosPorMuestra.Count != trayectoriaReal.Count)
+        {
+            Debug.LogWarning($"⚠️ CSV: tamaños desiguales. Real={trayectoriaReal.Count}, T={tiemposTrayectoria.Count}, Choque={choqueEstadoPorMuestra.Count}, Sum={suministrosPorMuestra.Count}. Exportando n={n}.");
+        }
+        /*
         if (tiemposTrayectoria.Count != n ||
             choqueEstadoPorMuestra.Count != n ||
             suministrosPorMuestra.Count != n)
         {
             Debug.LogError($"❌ Tamaños no coinciden. Real={n}, Tiempos={tiemposTrayectoria.Count}, Choque={choqueEstadoPorMuestra.Count}, Suministros={suministrosPorMuestra.Count}");
             return;
-        }
+        }*/
 
         // Nombre de archivo: Nivel_PilotID_DDMMAA.csv
         // Obtener nombre del nivel actual
         int nivelActual = SceneManager.GetActiveScene().buildIndex;
         string scenePath = SceneUtility.GetScenePathByBuildIndex(nivelActual);
         string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+        // obtener numero de nivel
+        string nivelNumero = System.Text.RegularExpressions.Regex.Match(sceneName, @"\d+").Value;
+        string nivel = "n" + nivelNumero;
 
-        string name = sceneName;
-        string nivel = name;  // asumes que existe
+        //string name = sceneName;
+        //string nivel = name;  // asumes que existe
         string piloto = GameSettings.pilotoID;          // asumes que existe
-        string fecha = System.DateTime.Now.ToString("ddHHmmss"); // dd/hh/mm/ss
-        string fileName = $"{nivel}_{piloto}_{fecha}.csv";
-        string ruta = Path.Combine(saveFolder, fileName);
+        string concepto = "espacio";
+        string fecha = System.DateTime.Now.ToString("yyyyMMdd"); // yyyy-MM-dd_HH-mm-ss
+        string correlativo = SessionManager.ObtenerRondaFormateada();
+
+        string fileName = $"{fecha}_{piloto}_{concepto}_{correlativo}_{nivel}.csv";
+        string ruta = Path.Combine(saveFolder, fileName);                   
 
         var ci = CultureInfo.InvariantCulture;
         StringBuilder sb = new StringBuilder(1024);
@@ -119,14 +145,19 @@ public static class CSVExporter
         }
 
         // === ENTREGAS (al final del CSV) ===
-        if (entregasT != null && entregasN != null && entregasError != null && entregasEstab != null &&
-            entregasT.Count == entregasN.Count && entregasN.Count == entregasError.Count && entregasError.Count == entregasEstab.Count)
+        int ne = 0;
+        if (entregasT != null && entregasN != null && entregasError != null && entregasEstab != null)
+        {
+            ne = Mathf.Min(entregasT.Count, entregasN.Count, entregasError.Count, entregasEstab.Count);
+        }
+
+        if (ne > 0)
         {
             sb.AppendLine();
             sb.AppendLine("# Entregas");
-            sb.AppendLine("Tipo,T,Suministro,Error,Estabilidad"); // ⬅️ nueva columna
+            sb.AppendLine("Tipo,T,Suministro,Error,Estabilidad");
 
-            for (int i = 0; i < entregasT.Count; i++)
+            for (int i = 0; i < ne; i++)
             {
                 sb.Append("Entrega,")
                 .Append(entregasT[i].ToString(ci)).Append(',')
@@ -146,9 +177,19 @@ public static class CSVExporter
         // Promedio de estabilidad por ENTREGA  ⬅️ NUEVO
         float estabilidadPromedioEntregas = PromedioLimpio(entregasEstab);
         sb.Append("Estabilidad promedio,").AppendLine(estabilidadPromedioEntregas.ToString(ci));
+        try
+        {
+            if (!Directory.Exists(saveFolder))
+                Directory.CreateDirectory(saveFolder);
 
-        // Guardar archivo
-        File.WriteAllText(ruta, sb.ToString(), Encoding.UTF8);
+            File.WriteAllText(ruta, sb.ToString(), Encoding.UTF8);
+            Debug.Log($"✅ CSV guardado: {ruta}");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"❌ Error guardando CSV en '{ruta}': {e}");
+        }
+
         //Debug.Log($"✅ Datos guardados en: {ruta}");
         Debug.Log($"[CSV] nivel='{nivel}' piloto='{piloto}' fecha='{fecha}' fileName='{fileName}'");
 

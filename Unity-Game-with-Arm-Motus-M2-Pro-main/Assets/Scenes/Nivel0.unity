@@ -2188,10 +2188,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nave: {fileID: 1970546351}
+  emg: {fileID: 1951094209}
   panelGameOver: {fileID: 740027217}
-  mensajeUI: {fileID: 0}
   panelFinal: {fileID: 1676624566}
-  textoResultados: {fileID: 0}
   trayectoriaIdeal: {fileID: 701282003}
   barraEstabilidad: {fileID: 0}
 --- !u!1 &582996646
@@ -7060,6 +7059,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930758549}
   m_CullTransparentMesh: 1
+--- !u!1 &1951094208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951094210}
+  - component: {fileID: 1951094209}
+  m_Layer: 0
+  m_Name: emg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1951094209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951094208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67cfe696f0f6fa49a966de0dac94ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  host: 192.168.1.50
+  port: 5000
+  autoReconnect: 1
+--- !u!4 &1951094210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951094208}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1366751, y: -1.4135611, z: -9.942596}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1970546344
 GameObject:
   m_ObjectHideFlags: 0
@@ -7138,6 +7184,7 @@ MonoBehaviour:
   robotCursorVisual: {fileID: 825638385}
   showRobotCursorOnlyBeforeStart: 1
   hideSystemCursorWhenArmMotus: 1
+  emg: {fileID: 1951094209}
   rb: {fileID: 1970546350}
   smoothTime: 0.06
   Xmin: 0
@@ -7158,6 +7205,7 @@ MonoBehaviour:
   cursorSensitivity: 0.22
   clampToCamera: 1
   clampPadding: 0.3
+  robotSensitivity: 1
   hideSystemCursorInPlay: 1
   cursorVisualOffset: {x: 0, y: 0, z: 0}
   trayectoriaReal: []
@@ -7718,3 +7766,4 @@ SceneRoots:
   - {fileID: 123592535}
   - {fileID: 503326132}
   - {fileID: 825638385}
+  - {fileID: 1951094210}

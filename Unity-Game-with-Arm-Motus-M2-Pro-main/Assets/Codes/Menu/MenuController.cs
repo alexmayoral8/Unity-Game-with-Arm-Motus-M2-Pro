@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
-    public TMP_Dropdown levelDropdown;
+    //public TMP_Dropdown levelDropdown;
     public TMP_Dropdown pilotoDropdown; // Nuevo: para seleccionar ID del piloto
     public Image previewImage;                 // Image en el Canvas donde se verá la miniatura
     public Sprite[] levelPreviews;             // Sprites de cada nivel (mismo orden que el dropdown)
@@ -30,10 +30,10 @@ public class MenuController : MonoBehaviour
 
         // (tu código de nivel y preview igual)
         // Nivel
-        GameSettings.nivelSeleccionado = levelDropdown.options[levelDropdown.value].text;
-        levelDropdown.onValueChanged.AddListener(delegate { NivelChanged(levelDropdown); });
+        //GameSettings.nivelSeleccionado = levelDropdown.options[levelDropdown.value].text;
+        //levelDropdown.onValueChanged.AddListener(delegate { NivelChanged(levelDropdown); });
         // Mostrar preview inicial del nivel seleccionado al abrir el menú
-        ActualizarPreview(levelDropdown.value);
+        //ActualizarPreview(levelDropdown.value);
         // Piloto
         GameSettings.pilotoID = pilotoDropdown.options[pilotoDropdown.value].text;
         pilotoDropdown.onValueChanged.AddListener(delegate { PilotoChanged(pilotoDropdown); });
@@ -71,12 +71,12 @@ public class MenuController : MonoBehaviour
         Debug.Log("Piloto seleccionado: " + GameSettings.pilotoID);
     }
 
-    public void StartGame()
+    /*public void StartGame()
     {
         Debug.Log($"[Menu] StartGame() pilotoID actual: '{GameSettings.pilotoID}'");
         int index = levelDropdown.value + 4; // Ajusta según tu build
         SceneManager.LoadScene(index);
-    }
+    }*/
 
     public void IrAMisionPersonalizable(int indice)
     {
@@ -85,6 +85,10 @@ public class MenuController : MonoBehaviour
     public void IrAConfiguracion()
     {
         SceneManager.LoadScene("ConfiguracionDeMision");
+    }
+        public void IrAInstrucciones()
+    {
+        SceneManager.LoadScene("InstruccionesDeMision");
     }
     public void StartModoHistoria()
     {

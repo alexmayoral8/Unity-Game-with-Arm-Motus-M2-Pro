@@ -74,6 +74,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/calibracion.unity
     guid: ad99ca6a3e017e6489455786a231d928
+  - enabled: 1
+    path: Assets/Scenes/InstruccionesDeMision.unity
+    guid: 984c9897e8690834f9a3b1fc515692aa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

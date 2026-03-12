@@ -34,8 +34,8 @@ public class MenuControllerHistoria : MonoBehaviour
         // Opcional: inicializar textos con 3 vidas y 5 suministros
         for (int i = 0; i < slotVidasInputs.Length; i++)
         {
-            if (slotVidasInputs[i] != null) slotVidasInputs[i].text = "3";
-            if (slotSuministrosInputs[i] != null) slotSuministrosInputs[i].text = "5";
+            if (slotVidasInputs[i] != null) slotVidasInputs[i].text = "5";
+            if (slotSuministrosInputs[i] != null) slotSuministrosInputs[i].text = "10";
         }
         if (invertToggle != null)
         {
@@ -68,6 +68,8 @@ public class MenuControllerHistoria : MonoBehaviour
     // Llamado por el botón "Iniciar historia" en el menú
     public void EmpezarHistoriaPersonalizada()
     {
+        SessionManager.Inicializar(CSVExporter.saveFolder, GameSettings.pilotoID, "espacio");
+
         HistoriaSettings.historiaPersonalizadaActiva = true;
         HistoriaSettings.indiceNivelActual = 0;
 

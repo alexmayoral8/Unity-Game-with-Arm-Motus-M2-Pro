@@ -11,6 +11,7 @@ public class UnityClient : MonoBehaviour
     private byte[] dataBuffer = new byte[1024];
     public string host = "127.0.0.1";
     public int port = 12345;
+        
     [Header("Where to send the ArmMotus coords")]
     public NaveHistoriaPrueba nave;   // arrastra el GO de la nave que tiene NaveHistoriaPrueba
     public float requestInterval = 0.05f;   // 20 Hz
@@ -27,6 +28,8 @@ public class UnityClient : MonoBehaviour
 
     private float requestTimer = 0f;
     private string rxAccum = "";            // para manejar mensajes por líneas
+    private float retryTimer = 0f;
+    public float retryEvery = 1f;
 
     void Start()
     {
@@ -35,7 +38,16 @@ public class UnityClient : MonoBehaviour
 
     void Update()
     {
-        if (client == null || !client.Connected) return;
+        if (client == null || !client.Connected)
+        {
+            retryTimer += Time.deltaTime;
+            if (retryTimer >= retryEvery)
+            {
+                retryTimer = 0f;
+                ConnectToServer();
+            }
+            return;
+        }
 
         // 1) Pedir dato cada cierto tiempo
         requestTimer += Time.deltaTime;
@@ -56,6 +68,7 @@ public class UnityClient : MonoBehaviour
             client = new TcpClient(host, port);
             stream = client.GetStream();
             Debug.Log("[UNITY] Connected to server.");
+
         }
         catch (Exception e)
         {
@@ -114,7 +127,12 @@ public class UnityClient : MonoBehaviour
         }
 
         if (!ok) return;
-
+       // Verificar si los valores son NaN (cuando Python no manda datos)
+        if (float.IsNaN(x) || float.IsNaN(y)) 
+        {
+            Debug.Log("Robot fuera de línea o sin datos");
+            return; 
+        }
         lastX = x;
         lastY = y;
         lastFx = fx;

@@ -13,6 +13,8 @@ public class NaveHistoriaPrueba : MonoBehaviour
     public Transform robotCursorVisual;          // Asigna aquí un sprite (crosshair) en World Space
     public bool showRobotCursorOnlyBeforeStart = true;
     public bool hideSystemCursorWhenArmMotus = true;
+    //[Header("EMG Tcp")]
+    //public EmgTcpClient emg; // arrastra tu EmgTcpClient aquí para recibir datos EMG (si quieres usarlos para algo)
 
     [Header("Rigidbody")]
     public Rigidbody2D rb;
@@ -323,7 +325,7 @@ public class NaveHistoriaPrueba : MonoBehaviour
     {
         // Evita que se vuelva a iniciar si ya está corriendo
         if (juegoIniciado) return;
-
+        EmgTcpClient.Instance?.StartRecording(); // Iniciar grabación EMG al comenzar el juego
         SetSystemCursor(false, CursorLockMode.Locked); // ocultar cursor SO
         virtualCursor = transform.position;            // cursor virtual = donde está la nave
         virtualCursorInit = true;                      // márcalo como inicializado

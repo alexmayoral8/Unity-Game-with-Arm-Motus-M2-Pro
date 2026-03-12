@@ -24,6 +24,7 @@ public class CargarSuministros : MonoBehaviour
     private int SuministrosEntregados = 0;
     [Header("Objetivo de suministros")]
     public int suministrosObjetivo = 5;  
+    private bool nivelCompletado = false;
 
     void Start()
     {
@@ -100,22 +101,29 @@ public class CargarSuministros : MonoBehaviour
 
     public void EntregarSuministro()
     {
+        if (nivelCompletado) return; // 🔥 BLOQUEO TOTAL
+
         if (supplyInstance != null)
         {
             gameManager.OnSuministroEntregado();
             StartCoroutine(AnimarEntrega(supplyInstance.transform, estacion));
             supplyInstance = null;
+
             SuministrosEntregados++;
-            EntregasHUD.text = "Suministros entregados: " + SuministrosEntregados + "/" + suministrosObjetivo; // ⭐
+
+            EntregasHUD.text = "Suministros entregados: " 
+                + SuministrosEntregados + "/" + suministrosObjetivo;
+
             if (SuministrosEntregados >= suministrosObjetivo)
             {
+                nivelCompletado = true;  // 🔥 evita futuras entregas
+
                 puedeMoverse = false;
                 juegoIniciado = false;
                 naveActiva = false;
+
                 gameManager.ActivarPanelFinal();
             }
-
-
         }
     }
     public void SoltarSuministroEnPosicionActual()

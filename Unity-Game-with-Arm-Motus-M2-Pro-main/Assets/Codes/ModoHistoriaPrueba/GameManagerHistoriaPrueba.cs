@@ -11,7 +11,8 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
     [Header("Nave")]
     public NaveHistoriaPrueba nave; // ahora solo UNA nave
     private NaveHistoriaPrueba naveSeleccionada;
-
+    //[Header("TCP Emg")]
+    //public EmgTcpClient emg; // arrastra tu EmgTcpClient aquí para controlarlo desde el GameManager
     [Header("UI")]
     public GameObject panelGameOver; // Arrastra aquí tu panel de Game Over en el Inspector
     //public TextMeshProUGUI mensajeUI;
@@ -116,10 +117,11 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
     }
     public void ActivarPanelFinal()
     {
+        GuardarCSV("COMPLETADO");
+        EmgTcpClient.Instance?.StopRecording();
         nave.SetSystemCursor(true, CursorLockMode.Confined);
         panelFinal.SetActive(true);
         nave.AltoNave();
-        GuardarCSV("COMPLETADO");
     }
     // Llamado por CargarSuministros al completar una entrega
     public void OnSuministroEntregado()
@@ -430,6 +432,7 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
     {
         if (_gameOverRunning) return;          // evita disparos dobles
         StartCoroutine(GameOverSequence(1f));  // espera 1s en tiempo real
+        EmgTcpClient.Instance?.StopRecording(); // Detener grabación EMG al hacer Game Over
     }
 
     private System.Collections.IEnumerator GameOverSequence(float waitSeconds)
