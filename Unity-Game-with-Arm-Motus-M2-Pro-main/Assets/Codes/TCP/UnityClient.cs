@@ -6,6 +6,8 @@ using System.Globalization;
 
 public class UnityClient : MonoBehaviour
 {
+    [Header("Input Mode Reference")]
+    public NaveHistoriaPrueba naveController;
     private TcpClient client;
     private NetworkStream stream;
     private byte[] dataBuffer = new byte[1024];
@@ -30,14 +32,32 @@ public class UnityClient : MonoBehaviour
     private string rxAccum = "";            // para manejar mensajes por líneas
     private float retryTimer = 0f;
     public float retryEvery = 1f;
-
     void Start()
     {
-        ConnectToServer();
+        bool useArmMotus =
+            PlayerPrefs.GetInt("UseArmMotus", 0) == 1;
+
+        if (useArmMotus)
+        {
+            ConnectToServer();
+        }
+        else
+        {
+            enabled = false;
+        }
     }
 
     void Update()
     {
+            // Si no estamos usando ArmMotus, no hacer nada
+        if (naveController != null &&
+            naveController.inputMode != NaveHistoriaPrueba.InputMode.ArmMotus)
+        {
+            return;
+        }
+
+        
+        
         if (client == null || !client.Connected)
         {
             retryTimer += Time.deltaTime;
@@ -140,7 +160,7 @@ public class UnityClient : MonoBehaviour
 
         // 👉 Aquí conectas con tu lógica de rango
         if (nave != null)
-            nave.OnRobotCoord(x, y);
+            nave.OnRobotCoord(x, y,fx,fy);
 
         // Debug opcional
         if (logValues)

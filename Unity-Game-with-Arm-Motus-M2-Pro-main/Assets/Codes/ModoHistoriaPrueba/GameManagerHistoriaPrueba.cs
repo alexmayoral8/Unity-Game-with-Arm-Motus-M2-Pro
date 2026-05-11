@@ -355,18 +355,19 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
         CSVExporter.GuardarDatosCSV(
             trayectoriaIdeal: trayectoriaIdeal,
             trayectoriaReal: nave.trayectoriaReal,
+            fuerzasReal: nave.fuerzasReal,
             tiemposTrayectoria: nave.tiemposTrayectoria,
             choqueEstadoPorMuestra: choqueEstados,
             suministrosPorMuestra: suministrosSeries,
             status: status,
             errorPromedio: errorProm,
             estabilidad: estabilidad,
-            // === NUEVO ===
             entregasT: entregasT,
             entregasN: entregasN,
             entregasError: entregasError,
             entregasEstab: entregasEstab
-            );
+        );
+
     }
     // ======================================================================
     //BOTONES
@@ -433,6 +434,7 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
         if (_gameOverRunning) return;          // evita disparos dobles
         StartCoroutine(GameOverSequence(1f));  // espera 1s en tiempo real
         EmgTcpClient.Instance?.StopRecording(); // Detener grabación EMG al hacer Game Over
+        nave.AltoNave();
     }
 
     private System.Collections.IEnumerator GameOverSequence(float waitSeconds)

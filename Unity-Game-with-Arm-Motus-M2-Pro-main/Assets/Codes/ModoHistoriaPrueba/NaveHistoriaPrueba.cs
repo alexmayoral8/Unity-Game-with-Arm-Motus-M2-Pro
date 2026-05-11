@@ -65,6 +65,9 @@ public class NaveHistoriaPrueba : MonoBehaviour
     [Header("Trayectoria")]
     public List<Vector3> trayectoriaReal = new List<Vector3>();
     public List<float> tiemposTrayectoria = new List<float>();
+    public List<Vector3> fuerzasReal = new List<Vector3>();
+    private float currentFx = 0f; // para debug o visualización
+    private float currentFy = 0f;
     public float intervaloDeMuestreo = 0.05f;
     private float tiempoMuestreo = 0f;
     private Vector3 ultimaPosicion;
@@ -100,6 +103,13 @@ public class NaveHistoriaPrueba : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f; // asegurar que el tiempo corre normalmente al iniciar este nivel
+        bool useArmMotus = PlayerPrefs.GetInt("UseArmMotus", GameSettings.useArmMotus ? 1 : 0) == 1;
+
+        inputMode = useArmMotus ? InputMode.ArmMotus : InputMode.Mouse;
+
+        Debug.Log($"[Nave] UseArmMotus PlayerPrefs={PlayerPrefs.GetInt("UseArmMotus", -1)}");
+        Debug.Log($"[Nave] inputMode aplicado: {inputMode}");
         // === Robot calibration (PlayerPrefs) ===
         const string KEY_XMIN = "Robot_Xmin";
         const string KEY_XMAX = "Robot_Xmax";
@@ -258,7 +268,8 @@ public class NaveHistoriaPrueba : MonoBehaviour
         if (tiempoMuestreo >= intervaloDeMuestreo)
         {
             trayectoriaReal.Add(posReal);
-            tiemposTrayectoria.Add(Time.time);
+            tiemposTrayectoria.Add(Time.timeSinceLevelLoad);
+            fuerzasReal.Add(new Vector3(currentFx, currentFy, 0f));
             tiempoMuestreo = 0f;
         }
     }
@@ -325,7 +336,16 @@ public class NaveHistoriaPrueba : MonoBehaviour
     {
         // Evita que se vuelva a iniciar si ya está corriendo
         if (juegoIniciado) return;
-        EmgTcpClient.Instance?.StartRecording(); // Iniciar grabación EMG al comenzar el juego
+        bool useEMG = PlayerPrefs.GetInt("UseEMG", GameSettings.useEMG ? 1 : 0) == 1;
+
+        if (useEMG)
+        {
+            EmgTcpClient.Instance?.StartRecording();
+        }
+        else
+        {
+            Debug.Log("[Nave] EMG desactivado. No se inicia grabación.");
+        }
         SetSystemCursor(false, CursorLockMode.Locked); // ocultar cursor SO
         virtualCursor = transform.position;            // cursor virtual = donde está la nave
         virtualCursorInit = true;                      // márcalo como inicializado
@@ -353,7 +373,7 @@ public class NaveHistoriaPrueba : MonoBehaviour
         if (distancia < 0.5f)
         {
             // Suma el tiempo con el cursor encima
-            tiempoCursorSobreNave += Time.deltaTime;
+            tiempoCursorSobreNave += Time.unscaledDeltaTime;
 
             // Calcula cuánto falta
             float restante = Mathf.Clamp(tiempoNecesarioParaIniciar - tiempoCursorSobreNave, 0f, tiempoNecesarioParaIniciar);
@@ -449,6 +469,9 @@ public class NaveHistoriaPrueba : MonoBehaviour
             if (gameManager != null)
             {
                 gameManager.GameOver();        // muestra panel final / bloquea juego
+                puedeMoverse = false;
+                juegoIniciado = false;
+                naveActiva = false;
             }
         }
     }
@@ -523,11 +546,13 @@ public class NaveHistoriaPrueba : MonoBehaviour
     }
     
     //ARM MOTUS CALLBACK
-    public void OnRobotCoord(float xRaw, float yRaw)
+    public void OnRobotCoord(float xRaw, float yRaw, float fx, float fy)
     {
         // Si esto lo llama tu receptor TCP desde otro hilo:
         lastXRaw = xRaw;
         lastYRaw = yRaw;
+        currentFx = fx;
+        currentFy = fy;
         hasRobotSample = true;
 
         // Si lo llamas desde el hilo principal, puedes hacer:

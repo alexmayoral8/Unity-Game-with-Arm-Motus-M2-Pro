@@ -29,6 +29,7 @@ public static class CSVExporter
         LineRenderer trayectoriaIdeal,
         List<Vector3> trayectoriaReal,
         List<float> tiemposTrayectoria,
+        List<Vector3> fuerzasReal,
         List<int> choqueEstadoPorMuestra,
         List<int> suministrosPorMuestra,
         string status,
@@ -55,6 +56,7 @@ public static class CSVExporter
 
         int n = Mathf.Min(
             trayectoriaReal.Count,
+            fuerzasReal.Count,
             tiemposTrayectoria.Count,
             choqueEstadoPorMuestra.Count,
             suministrosPorMuestra.Count
@@ -111,7 +113,7 @@ public static class CSVExporter
         sb.AppendLine();
 
         // Encabezado de la tabla
-        sb.AppendLine("Tipo,T,Suministro,PX,PY,Choque");
+        sb.AppendLine("Tipo,T,Suministro,PX,PY,FX,FY,Choque");
 
         // --- Trayectoria Ideal ---
         if (trayectoriaIdeal != null)
@@ -124,7 +126,7 @@ public static class CSVExporter
                 sb.Append("Ideal,NaN,NaN,");
                 sb.Append(p.x.ToString(ci)).Append(',');
                 sb.Append(p.y.ToString(ci)).Append(',');
-                sb.AppendLine("NaN");
+                sb.AppendLine("NaN,NaN,NaN");
             }
         }
 
@@ -132,6 +134,7 @@ public static class CSVExporter
         for (int i = 0; i < n; i++)
         {
             Vector3 p = trayectoriaReal[i];
+            Vector3 f = fuerzasReal[i];
             float t = tiemposTrayectoria[i];
             int choque = choqueEstadoPorMuestra[i];      // 0 normal, 1 choque, 2 invuln
             int sumin = suministrosPorMuestra[i];        // acumulado de entregas
@@ -141,6 +144,8 @@ public static class CSVExporter
             sb.Append(sumin.ToString(ci)).Append(',');
             sb.Append(p.x.ToString(ci)).Append(',');
             sb.Append(p.y.ToString(ci)).Append(',');
+            sb.Append(f.x.ToString(ci)).Append(',');
+            sb.Append(f.y.ToString(ci)).Append(',');
             sb.AppendLine(choque.ToString(ci));
         }
 

@@ -16878,8 +16878,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4371924623e44a94690ecdcec62bc5b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelDropdown: {fileID: 0}
   pilotoDropdown: {fileID: 0}
+  controlDropdown: {fileID: 0}
+  emgToggle: {fileID: 0}
   previewImage: {fileID: 0}
   levelPreviews: []
 --- !u!1 &2091270260

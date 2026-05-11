@@ -17,6 +17,7 @@ public class MenuControllerHistoria : MonoBehaviour
     public TMP_InputField[] slotSuministrosInputs; // 5 inputs de suministros
     public Toggle invertToggle;               // Toggle para invertir niveles
 
+
     void Start()
     {
         // Suscribimos cada dropdown para que cuando cambie, actualice su preview
@@ -35,7 +36,7 @@ public class MenuControllerHistoria : MonoBehaviour
         for (int i = 0; i < slotVidasInputs.Length; i++)
         {
             if (slotVidasInputs[i] != null) slotVidasInputs[i].text = "5";
-            if (slotSuministrosInputs[i] != null) slotSuministrosInputs[i].text = "10";
+            if (slotSuministrosInputs[i] != null) slotSuministrosInputs[i].text = "15";
         }
         if (invertToggle != null)
         {
@@ -68,27 +69,34 @@ public class MenuControllerHistoria : MonoBehaviour
     // Llamado por el botón "Iniciar historia" en el menú
     public void EmpezarHistoriaPersonalizada()
     {
-        SessionManager.Inicializar(CSVExporter.saveFolder, GameSettings.pilotoID, "espacio");
+        SessionManager.Inicializar(
+            CSVExporter.saveFolder,
+            GameSettings.pilotoID,
+            "espacio"
+        );
 
         HistoriaSettings.historiaPersonalizadaActiva = true;
         HistoriaSettings.indiceNivelActual = 0;
 
-        // Llenamos la configuración global a partir de lo que eligió el terapeuta
         for (int i = 0; i < HistoriaSettings.niveles.Length; i++)
         {
             int levelIndex = slotLevelDropdowns[i].value;
             bool invert = invertToggle != null && invertToggle.isOn;
 
-            // elegimos el arreglo correcto
-            string[] catalogo = invert ? sceneNamesInvertido : sceneNamesNormal;
+            string[] catalogo =
+                invert ? sceneNamesInvertido : sceneNamesNormal;
+
             int vidas = 3;
             int suministros = 5;
+
             if (slotVidasInputs[i] != null)
                 int.TryParse(slotVidasInputs[i].text, out vidas);
+
             if (slotSuministrosInputs[i] != null)
                 int.TryParse(slotSuministrosInputs[i].text, out suministros);
 
-            HistoriaSettings.niveles[i] = new HistoriaSettings.NivelHistoria
+            HistoriaSettings.niveles[i] =
+                new HistoriaSettings.NivelHistoria
             {
                 sceneName = catalogo[levelIndex],
                 maxVidas = Mathf.Max(1, vidas),
@@ -97,10 +105,13 @@ public class MenuControllerHistoria : MonoBehaviour
             };
         }
 
-        // Cargar el primer nivel según el primer slot
-        string primeraEscena = HistoriaSettings.niveles[0].sceneName;
+        string primeraEscena =
+            HistoriaSettings.niveles[0].sceneName;
+
         SceneManager.LoadScene(primeraEscena);
     }
+
+
     void RefrescarPreviews()
     {
         for (int i = 0; i < slotLevelDropdowns.Length; i++)

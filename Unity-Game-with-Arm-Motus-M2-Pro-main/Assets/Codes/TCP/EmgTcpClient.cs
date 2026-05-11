@@ -27,9 +27,18 @@ public class EmgTcpClient : MonoBehaviour
     }
     void Start()
     {
-        Connect();
-    }
+        bool useEMG =
+            PlayerPrefs.GetInt("UseEMG", 0) == 1;
 
+        if (useEMG)
+        {
+            Connect();
+        }
+        else
+        {
+            enabled = false;
+        }
+    }
     public void Connect()
     {
         try
