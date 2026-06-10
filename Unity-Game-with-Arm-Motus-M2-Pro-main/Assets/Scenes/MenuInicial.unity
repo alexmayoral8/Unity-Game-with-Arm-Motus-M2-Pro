@@ -387,7 +387,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Rehabilitacion del miembro superior mediante navergacion galactica
+  m_text: 'Rehabilitacion del miembro superior mediante navegacion galactica
 
 '
   m_isRightToLeft: 0
@@ -4648,6 +4648,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pilotoDropdown: {fileID: 1745583239}
+  controlDropdown: {fileID: 0}
+  emgToggle: {fileID: 0}
   previewImage: {fileID: 0}
   levelPreviews: []
 --- !u!1660057539 &9223372036854775807

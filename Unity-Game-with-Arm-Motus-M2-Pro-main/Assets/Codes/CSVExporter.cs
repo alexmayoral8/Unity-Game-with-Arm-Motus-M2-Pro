@@ -25,7 +25,7 @@ public static class CSVExporter
     /// choqueEstadoPorMuestra: 0 (normal), 1 (choque), 2 (invulnerable)
     /// suministrosPorMuestra: 0,1,2,... (número acumulado de entregas en ese instante)
     /// </summary>
-    public static void GuardarDatosCSV(
+    public static string GuardarDatosCSV(
         LineRenderer trayectoriaIdeal,
         List<Vector3> trayectoriaReal,
         List<float> tiemposTrayectoria,
@@ -43,7 +43,7 @@ public static class CSVExporter
         if (string.IsNullOrEmpty(saveFolder))
         {
             Debug.Log("❌ No se ha seleccionado carpeta para guardar los CSV.");
-            return;
+            return null;
         }
 
         // Validaciones básicas
@@ -51,7 +51,7 @@ public static class CSVExporter
             choqueEstadoPorMuestra == null || suministrosPorMuestra == null)
         {
             Debug.LogError("❌ Listas nulas: verifica que pasas todas las colecciones requeridas.");
-            return;
+            return null;
         }
 
         int n = Mathf.Min(
@@ -65,7 +65,7 @@ public static class CSVExporter
         if (n <= 0)
         {
             Debug.LogWarning("⚠️ CSV: no hay muestras suficientes para guardar.");
-            return;
+            return null;
         }
 
         // Si quieres saber si hubo desface:
@@ -193,10 +193,12 @@ public static class CSVExporter
         catch (System.Exception e)
         {
             Debug.LogError($"❌ Error guardando CSV en '{ruta}': {e}");
+            return null;
         }
 
         //Debug.Log($"✅ Datos guardados en: {ruta}");
         Debug.Log($"[CSV] nivel='{nivel}' piloto='{piloto}' fecha='{fecha}' fileName='{fileName}'");
+        return ruta;
 
     }
     // Helper para promedio ignorando NaN/Infinity

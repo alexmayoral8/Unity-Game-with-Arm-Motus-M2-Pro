@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 public class GameManagerHistoriaPrueba : MonoBehaviour
 {
@@ -17,10 +18,13 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
     public GameObject panelGameOver; // Arrastra aquí tu panel de Game Over en el Inspector
     //public TextMeshProUGUI mensajeUI;
     public GameObject panelFinal;
-    //public TMP_Text textoResultados;
+    public TMP_Text textoResultados;
     public LineRenderer trayectoriaIdeal;
     bool _gameOverRunning;
     public Slider barraEstabilidad;
+    private GameObject panelResultadosActual;
+    private Image fondoResultados;
+    private const string FondoResultadosName = "FondoResultadosMetricas";
 
     // ================= CSV tracking =================
     private List<int> choqueEstados = new List<int>();
@@ -65,6 +69,18 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
         lastSampleCount = 0;
         suministrosEntregados = 0;
         entregasT.Clear(); entregasN.Clear(); entregasError.Clear(); entregasEstab.Clear();
+    }
+
+    void OnEnable()
+    {
+        AnalyticsClient.MetricsJsonReceived += MostrarMetricasRecibidas;
+        AnalyticsClient.MetricsUnavailable += MostrarMetricasNoDisponibles;
+    }
+
+    void OnDisable()
+    {
+        AnalyticsClient.MetricsJsonReceived -= MostrarMetricasRecibidas;
+        AnalyticsClient.MetricsUnavailable -= MostrarMetricasNoDisponibles;
     }
 
     void Update()
@@ -117,6 +133,8 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
     }
     public void ActivarPanelFinal()
     {
+        panelResultadosActual = panelFinal;
+        MostrarMetricasNoDisponibles(null);
         GuardarCSV("COMPLETADO");
         EmgTcpClient.Instance?.StopRecording();
         nave.SetSystemCursor(true, CursorLockMode.Confined);
@@ -352,7 +370,7 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
         float estabilidad = CalcularEstabilidad(nave.trayectoriaReal, nave.tiemposTrayectoria);
 
         // Llama a tu CSVExporter NUEVO (el que definimos con status, choque y suministros)
-        CSVExporter.GuardarDatosCSV(
+        string csvPath = CSVExporter.GuardarDatosCSV(
             trayectoriaIdeal: trayectoriaIdeal,
             trayectoriaReal: nave.trayectoriaReal,
             fuerzasReal: nave.fuerzasReal,
@@ -368,6 +386,10 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
             entregasEstab: entregasEstab
         );
 
+        if (!string.IsNullOrEmpty(csvPath))
+        {
+            AnalyticsClient.SendCsv(csvPath);
+        }
     }
     // ======================================================================
     //BOTONES
@@ -445,6 +467,8 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
         if (nave != null) nave.puedeMoverse = false;
         // Espera en TIEMPO REAL (ignora Time.timeScale)
         yield return new WaitForSecondsRealtime(waitSeconds);
+        panelResultadosActual = panelGameOver;
+        MostrarMetricasNoDisponibles(null);
         GuardarCSV("FALLADO");
         // Ahora sí muestra el panel y pausa
         if (panelGameOver != null) panelGameOver.SetActive(true);
@@ -453,7 +477,153 @@ public class GameManagerHistoriaPrueba : MonoBehaviour
         _gameOverRunning = false;
     }
 
+    void MostrarMetricasRecibidas(string json)
+    {
+        AnalyticsResponse response = JsonUtility.FromJson<AnalyticsResponse>(json);
+        if (response == null || response.metrics == null)
+        {
+            MostrarMetricasNoDisponibles("Respuesta invalida.");
+            return;
+        }
+
+        AnalyticsMetrics metrics = response.metrics;
+        string text =
+            "Resultados\n" +
+            $"Error promedio: {FormatMetric(metrics.mean_error)}\n" +
+            $"Error máximo: {FormatMetric(metrics.max_error)}\n" +
+            $"SPARC / Suavidad: {FormatMetric(metrics.sparc)}\n" +
+            $"Tiempo total: {FormatMetric(metrics.total_time)} s\n" +
+            $"Velocidad media: {FormatMetric(metrics.mean_velocity)}\n" +
+            $"Choques: {metrics.collisions}";
+
+        SetResultadosText(text);
+    }
+
+    void MostrarMetricasNoDisponibles(string reason)
+    {
+        SetResultadosText("Resultados\nMétricas no disponibles");
+    }
+
+    void SetResultadosText(string text)
+    {
+        TMP_Text target = GetResultadosTextTarget();
+        if (target != null)
+        {
+            ApplyResultadosPresentation(target);
+            target.text = text;
+        }
+    }
+
+    void ApplyResultadosPresentation(TMP_Text target)
+    {
+        RectTransform textRect = target.rectTransform;
+
+        target.color = new Color(0.86f, 0.95f, 1f, 1f);
+        target.fontSize = 30f;
+        target.fontStyle = FontStyles.Bold;
+        target.alignment = TextAlignmentOptions.MidlineLeft;
+        target.enableWordWrapping = true;
+        target.overflowMode = TextOverflowModes.Truncate;
+        target.raycastTarget = false;
+
+        textRect.anchorMin = new Vector2(0f, 0f);
+        textRect.anchorMax = new Vector2(0f, 0f);
+        textRect.pivot = new Vector2(0f, 0f);
+        textRect.anchoredPosition = new Vector2(48f, 48f);
+        textRect.sizeDelta = new Vector2(520f, 330f);
+
+        Image background = GetOrCreateResultadosBackground(target);
+        if (background == null) return;
+
+        RectTransform bgRect = background.rectTransform;
+        bgRect.anchorMin = textRect.anchorMin;
+        bgRect.anchorMax = textRect.anchorMax;
+        bgRect.pivot = textRect.pivot;
+        bgRect.anchoredPosition = textRect.anchoredPosition;
+        bgRect.sizeDelta = new Vector2(570f, 370f);
+
+        background.color = new Color(0.02f, 0.07f, 0.13f, 0.72f);
+        background.raycastTarget = false;
+        background.transform.SetSiblingIndex(target.transform.GetSiblingIndex());
+        target.transform.SetAsLastSibling();
+    }
+
+    Image GetOrCreateResultadosBackground(TMP_Text target)
+    {
+        Transform parent = target.transform.parent;
+        if (parent == null) return null;
+
+        if (fondoResultados != null && fondoResultados.transform.parent == parent)
+        {
+            return fondoResultados;
+        }
+
+        Transform existing = parent.Find(FondoResultadosName);
+        if (existing != null && existing.TryGetComponent(out fondoResultados))
+        {
+            return fondoResultados;
+        }
+
+        GameObject go = new GameObject(FondoResultadosName, typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+        go.transform.SetParent(parent, false);
+        fondoResultados = go.GetComponent<Image>();
+        return fondoResultados;
+    }
+
+    TMP_Text GetResultadosTextTarget()
+    {
+        if (textoResultados != null) return textoResultados;
+
+        GameObject panel = panelResultadosActual != null ? panelResultadosActual : panelFinal;
+        if (panel == null) return null;
+
+        TMP_Text[] texts = panel.GetComponentsInChildren<TMP_Text>(true);
+        if (texts == null || texts.Length == 0) return null;
+
+        foreach (TMP_Text text in texts)
+        {
+            if (text != null && string.IsNullOrWhiteSpace(text.text))
+            {
+                textoResultados = text;
+                return textoResultados;
+            }
+        }
+
+        foreach (TMP_Text text in texts)
+        {
+            if (text != null && text.text == "New Text")
+            {
+                textoResultados = text;
+                return textoResultados;
+            }
+        }
+
+        textoResultados = texts[0];
+        return textoResultados;
+    }
+
+    string FormatMetric(float value)
+    {
+        if (float.IsNaN(value) || float.IsInfinity(value)) return "N/D";
+        return value.ToString("0.###", CultureInfo.InvariantCulture);
+    }
+
+    [Serializable]
+    class AnalyticsResponse
+    {
+        public bool success;
+        public AnalyticsMetrics metrics;
+    }
+
+    [Serializable]
+    class AnalyticsMetrics
+    {
+        public float mean_error;
+        public float max_error;
+        public float sparc;
+        public float total_time;
+        public float mean_velocity;
+        public int collisions;
+    }
+
 }
-
-
-
